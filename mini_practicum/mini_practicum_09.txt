@@ -1,0 +1,41 @@
+Unit 09 Practice Problems (Unit 10 Day 1 mini-practicum)
+
+The goal of these "mini practica" is to give you practice with coding problems
+similar to those that you will see on the midterm practica. You will be 
+required to solve each problem with minimal assistance. You should use these
+mini-practica as an opportunity to gauge your preparedness for the exams.
+
+You should create all of your required files in this folder along with these
+instructions.
+
+Each mini-practicum counts as a homework assignment. 
+===============================================================================
+
+1. Create a new Python module named "practice" and define a function named 
+   "make_letter_frequency" that declares a parameter for a filename and creates
+   a dictionary that counts the number of times that each alphabet letter is 
+   used in the text file and returns it. Convert the letters to lower case and 
+   do not include any digits or punctuation in your dictionary.
+
+2. Define a function named "print_letter_frequency" that declares a parameter 
+   for a letter-counting dictionary like the one created by the previous 
+   function and prints each letter and its frequency on a separate line. 
+
+   The function should also print the most popular letter with its frequency at
+   the end. 
+
+   Two text files, alice.txt and rit_mission.txt, have been provided for you to
+   test your functions. In your main, test your functions with each text file:
+
+   def main():
+      #filename = 'data/rit_mission.txt'
+      filename = 'data/alice.txt'
+      freq_dict = make_letter_frequency(filename)
+      ...
+
+    Using alice.txt as an example, your output should look like:  
+    p: 1968
+    r: 6612
+    o: 9478
+    ...
+    The most popular letter: e 15398
