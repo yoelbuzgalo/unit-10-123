@@ -1,6 +1,9 @@
 class Student:
     pass
 
+def print_student(student):
+    print(student.id, student.name,student.credits, student.gpa)
+
 def main():
     student_1 = Student()
     student_2 = Student()
@@ -15,7 +18,8 @@ def main():
     student_2.credits = "10"
     student_2.gpa = "3.5"
 
-    print(student_1.id, student_1.name,student_1.credits, student_1.gpa, student_2.id, student_2.name,student_2.credits, student_2.gpa)
+    print_student(student_1)
+    print_student(student_2)
 
 if __name__ == "__main__":
     main()
