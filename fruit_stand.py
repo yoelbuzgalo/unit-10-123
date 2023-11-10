@@ -1,18 +1,14 @@
 class Fruit:
-    type = ''
-    price = 1000000
+    __slot__ = ['type', 'price']
+    def __init__(self, type, price):
+        self.type = type
+        self.price = price
 
-GRAPE = Fruit()
-GRAPE.type = "Grapes"
-GRAPE.price = 3.50
+GRAPE = Fruit("Grapes", 3.50)
+LYCHEE = Fruit("Lychee", 0.50)
+PLUM = Fruit("Plum", 1.75)
 
-LYCHEE = Fruit()
-LYCHEE.type = "Lychee"
-LYCHEE.price = 0.50
-
-PLUM = Fruit()
-PLUM.type = "Plum"
-PLUM.price = 1.75
+INVENTORY = {"Grapes":GRAPE,"Lychee": LYCHEE,"Plum": PLUM}
 
 def add_to_basket(list, fruit):
     list.append(fruit)
@@ -36,23 +32,15 @@ def main():
         user_input = input("Enter name of fruit to add to basket: ")
         if user_input == "":
             break
-        elif user_input == "Grapes":
-            add_to_basket(basket, GRAPE)
-        elif user_input == "Lychee":
-            add_to_basket(basket, LYCHEE)
-        elif user_input == "Plum":
-            add_to_basket(basket, PLUM)
+        if user_input in INVENTORY:
+            add_to_basket(basket, INVENTORY[user_input])
         else:
-            raise ValueError("No fruit matched to add for basket")
-    
-    grape_count = count_fruits(basket, GRAPE)
-    lychee_count = count_fruits(basket, LYCHEE)
-    plum_count = count_fruits(basket, PLUM)
-    
+            raise ValueError("We don't sell that kind of fruit")
     print("Total price of basket: ", price_in_basket(basket))
-    print("You have", grape_count, "bundles of", GRAPE.type)
-    print("You have", plum_count, "bundles of", PLUM.type)
-    print("You have", lychee_count, "bundles of", LYCHEE.type)
+    for fruit in INVENTORY:
+        count = count_fruits(basket, INVENTORY[fruit])
+        if count > 0:
+            print("You have ", count, INVENTORY[fruit].type)
 
 if __name__ == "__main__":
     main()
