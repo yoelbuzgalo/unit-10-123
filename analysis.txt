@@ -1,1 +1,18 @@
-Nouns: system, title, book, library, patrons, shelves, authors, card catalog,list, id, name, csv file, copies
+Nouns: system, title, book, library, patrons, shelves, authors, card catalog, list, id, name, csv file, copies
+
+Library:
+    shelves
+    card catalog
+    books
+    csv filename
+
+Patron:
+    name
+    want list
+    id
+    has list
+
+Book:
+    title
+    authors
+    num copies
