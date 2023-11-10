@@ -1,4 +1,5 @@
 class Student:
+    __slots__ = ['id', 'name', 'credits', 'gpa']
     def __init__(self, id="No id", name="No name", credits=0, gpa=0):
         self.id = id
         self.name = name
