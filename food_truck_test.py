@@ -29,3 +29,13 @@ def test_food_price_dict():
     assert result_water == expected_water_price
     assert result_pasta == expected_pasta_price
     assert result_salad == expected_salad_price
+
+def test_food_code():
+    # Setup
+    expected_code = 'Water'
+
+    # Invoke
+    result_code = food_truck.FOOD_CODE['wa']
+
+    # Analysis
+    assert expected_code == result_code
