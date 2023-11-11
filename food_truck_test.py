@@ -13,3 +13,19 @@ def test_combo_class():
     assert result.drink == expected_drink
     assert result.entree == expected_entree
     assert result.side == expected_side
+
+def test_food_price_dict():
+    # Setup
+    expected_water_price = 2.00
+    expected_pasta_price = 4.00
+    expected_salad_price = 2.25
+
+    # Invoke
+    result_water = food_truck.FOOD_PRICES['Drink']['Water']
+    result_pasta = food_truck.FOOD_PRICES['Entree']['Pasta']
+    result_salad = food_truck.FOOD_PRICES['Side']['Salad']
+
+    # Analysis
+    assert result_water == expected_water_price
+    assert result_pasta == expected_pasta_price
+    assert result_salad == expected_salad_price
