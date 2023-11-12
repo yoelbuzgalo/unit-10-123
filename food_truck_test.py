@@ -1,19 +1,5 @@
 import food_truck
 
-def test_combo_class():
-    # Setup
-    expected_drink = 'Water'
-    expected_entree = 'Burger'
-    expected_side = 'Fries'
-
-    # Invoke
-    result = food_truck.Combo('Water', 'Burger', 'Fries')
-
-    # Analysis:
-    assert result.drink == expected_drink
-    assert result.entree == expected_entree
-    assert result.side == expected_side
-
 def test_food_price_dict():
     # Setup
     expected_water_price = 2.00
@@ -101,3 +87,22 @@ def test_menu_list_item_side():
     assert result[2].letter == expected_item.letter
     assert result[2].name == expected_item.name
     assert result[2].price == expected_item.price
+
+def test_order_combo():
+    """
+    Verify that order combo function is working as expected
+    """
+    # Setup
+    menu = food_truck.Menu()
+    expected_drink = menu.drink_list[0]
+    expected_entree = menu.entree_list[0]
+    expected_side = menu.side_list[0]
+    expected_price = (2+3.5+1.20)
+
+    # Invoke
+    result = food_truck.order_combo(menu, 'wa','bu','fr')
+
+    assert expected_drink == result.drink
+    assert expected_entree == result.entree
+    assert expected_side == result.side
+    assert expected_price == result.price
