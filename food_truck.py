@@ -16,7 +16,7 @@ FOOD_PRICES = {
     {
         'Fries': 1.20,
         'Salad': 2.25,
-        'Cornbread': 1.00,
+        'Cornbread': 1.00
     },
 }
 
@@ -69,21 +69,21 @@ def print_menu(menu):
     print("Drinks")
     for i in range(len(menu.drink_list)):
         menu_item = menu.drink_list[i]
-        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t")
+        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t\t")
     
     print("\n") # Empty line
 
     print("Entrees")
     for i in range(len(menu.entree_list)):
         menu_item = menu.entree_list[i]
-        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t")
+        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t\t")
 
     print("\n") # Empty line
 
     print("Sides")
     for i in range(len(menu.side_list)):
         menu_item = menu.side_list[i]
-        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t")
+        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t\t")
 
     print("\n") # Empty line
 
