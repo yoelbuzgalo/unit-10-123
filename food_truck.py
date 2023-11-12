@@ -28,21 +28,13 @@ def get_food_letter():
     food_dict = dict()
     for type in FOOD_PRICES:
         for food in FOOD_PRICES[type]:
-            # I decided to have double letters here to avoid situations where there are two items with same first letter being selected (Pizza or Pasta for example). This would be a safer approach.
+            # I decided to have double letters here (like in some examples 'cb' for cheese burger) to avoid situations where there are two items with same first letter being selected (Pizza or Pasta for example). This would be a safer approach.
             letter = food.lower()[0] + food.lower()[1]
             food_dict[food] = letter
     return food_dict
 
 # Constant to associate food code letter for every food item
 FOOD_LETTER = get_food_letter()
-
-class Combo:
-    __slots__ = ['drink', 'entree', 'side', 'price']
-    def __init__(self, drink, entree, side):
-        self.drink = drink
-        self.entree = entree
-        self.side = side
-        self.price = 0
 
 class Menu_Item:
     __slots__ = ['letter', 'name', 'price']
@@ -58,6 +50,14 @@ class Menu:
         self.drink_list = [Menu_Item(FOOD_LETTER[food_name], food_name, FOOD_PRICES['Drink'][food_name]) for food_name in FOOD_PRICES['Drink']]
         self.entree_list = [Menu_Item(FOOD_LETTER[food_name], food_name, FOOD_PRICES['Entree'][food_name]) for food_name in FOOD_PRICES['Entree']]
         self.side_list = [Menu_Item(FOOD_LETTER[food_name], food_name, FOOD_PRICES['Side'][food_name]) for food_name in FOOD_PRICES['Side']]
+
+class Combo:
+    __slots__ = ['drink', 'entree', 'side', 'price']
+    def __init__(self, drink, entree, side):
+        self.drink = drink
+        self.entree = entree
+        self.side = side
+        self.price = 0
 
 def print_menu(menu_obj):
     """
