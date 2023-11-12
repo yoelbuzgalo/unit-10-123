@@ -96,13 +96,13 @@ def get_food_from_input(list, target):
             return menu_item
     
 
-def order_combo(menu, drink_target, entree_target, side_target):
+def order_combo(menu, drink_letter_input, entree_input_letter, side_input_letter):
     """
     This function returns a combo object, depending on client's order
     """
-    drink = get_food_from_input(menu.drink_list, drink_target)
-    entree = get_food_from_input(menu.entree_list, entree_target)
-    side = get_food_from_input(menu.side_list, side_target)
+    drink = get_food_from_input(menu.drink_list, drink_letter_input)
+    entree = get_food_from_input(menu.entree_list, entree_input_letter)
+    side = get_food_from_input(menu.side_list, side_input_letter)
 
     if drink != None and entree != None and side != None:
         return Combo(drink, entree, side)
