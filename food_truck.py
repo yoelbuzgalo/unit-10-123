@@ -37,7 +37,7 @@ def get_food_letter():
 FOOD_LETTER = get_food_letter()
 
 class Combo:
-    __slot__ = ['drink', 'entree', 'side']
+    __slots__ = ['drink', 'entree', 'side', 'price']
     def __init__(self, drink, entree, side):
         self.drink = drink
         self.entree = entree
@@ -45,13 +45,14 @@ class Combo:
         self.price = 0
 
 class Menu_Item:
-    __slot__ = ['letter', 'name', 'price']
+    __slots__ = ['letter', 'name', 'price']
     def __init__(self, letter, name, price):
         self.letter = letter
         self.name = name
         self.price = price
 
 class Menu:
+    __slots__ = ['drink_list', 'entree_list', 'side_list']
     def __init__(self):
         # Initialize lists by category, each list item has relevant information associated with it (letter, name, price)
         self.drink_list = [Menu_Item(FOOD_LETTER[food_name], food_name, FOOD_PRICES['Drink'][food_name]) for food_name in FOOD_PRICES['Drink']]
