@@ -111,7 +111,9 @@ def order_combo(menu, drink_target, entree_target, side_target):
 
 
 def take_order():
-
+    """
+    This function takes in user input and returns input values
+    """
     input_drink = str(input("What would you like to drink: "))
     input_entree = str(input("What would you like for your entree: "))
     input_side = str(input("What would you like for your side: "))
@@ -119,10 +121,26 @@ def take_order():
     return input_drink, input_entree, input_side
 
 def main():
+    """
+    Main entry of this program
+    """
     menu = Menu()
+    cart = []
     print_menu(menu)
-    drink, entree, side = take_order()
-    print(order_combo(menu, drink, entree, side).price)
+    while True:
+        drink, entree, side = take_order()
+        cart.append(order_combo(menu, drink, entree, side))
+        inquire_add_combo = input("Would you like to add another combo (y/n):")
+        if inquire_add_combo.lower() == 'y':
+            continue
+        else:
+            break
+    print("Your order is:")
+    total = 0
+    for order in cart:
+        print("Drink:", order.drink.name, "Entree:", order.entree.name, "Side:", order.side.name, "Price:", "$"+str(order.price))
+        total += order.price
+    print("Total:", "$"+str(total))
 
 
 if __name__ == "__main__":
