@@ -59,23 +59,36 @@ class Menu:
         self.entree_list = [Menu_Item(FOOD_LETTER[food_name], food_name, FOOD_PRICES['Entree'][food_name]) for food_name in FOOD_PRICES['Entree']]
         self.side_list = [Menu_Item(FOOD_LETTER[food_name], food_name, FOOD_PRICES['Side'][food_name]) for food_name in FOOD_PRICES['Side']]
 
+def print_menu(menu_obj):
+    """
+    This function prints all items of a menu, seperated by categories
+    """
+    
+    print("MENU", "All meals are a combo!",sep="\n", end="\n\n")
+    
+    print("Drinks")
+    for i in range(len(menu_obj.drink_list)):
+        menu_item = menu_obj.drink_list[i]
+        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t")
+    
+    print("\n") # Empty line
+
+    print("Entrees")
+    for i in range(len(menu_obj.entree_list)):
+        menu_item = menu_obj.entree_list[i]
+        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t")
+
+    print("\n") # Empty line
+
+    print("Sides")
+    for i in range(len(menu_obj.side_list)):
+        menu_item = menu_obj.side_list[i]
+        print(menu_item.name,"(",menu_item.letter,")",": ", "$"+str(menu_item.price),sep="", end="\t")
+
 
 def main():
     my_menu = Menu()
-    for item in my_menu.drink_list:
-        print("Item letter:", item.letter)
-        print("Item name:", item.name)
-        print("Item price:", item.price)
-    
-    for item in my_menu.entree_list:
-        print("Item letter:", item.letter)
-        print("Item name:", item.name)
-        print("Item price:", item.price)
-
-    for item in my_menu.side_list:
-        print("Item letter:", item.letter)
-        print("Item name:", item.name)
-        print("Item price:", item.price)
+    print_menu(my_menu)
 
 
 if __name__ == "__main__":
