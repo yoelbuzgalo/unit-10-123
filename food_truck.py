@@ -100,27 +100,29 @@ def order_combo(menu, drink_target, entree_target, side_target):
     """
     This function returns a combo object, depending on client's order
     """
-    try:
-        drink = get_food_from_input(menu.drink_list, drink_target)
-        entree = get_food_from_input(menu.entree_list, entree_target)
-        side = get_food_from_input(menu.side_list, side_target)
+    drink = get_food_from_input(menu.drink_list, drink_target)
+    entree = get_food_from_input(menu.entree_list, entree_target)
+    side = get_food_from_input(menu.side_list, side_target)
 
-        if drink != None and entree != None and side != None:
-            return Combo(drink, entree, side)
-        else:
-            raise ValueError("No matched items in menu was found")
+    if drink != None and entree != None and side != None:
+        return Combo(drink, entree, side)
+    else:
+        raise ValueError("No matched items in menu was found")
 
-    except:
-        print("Invalid input, please make sure your letters match the menu list")
 
+def take_order():
+
+    input_drink = str(input("What would you like to drink: "))
+    input_entree = str(input("What would you like for your entree: "))
+    input_side = str(input("What would you like for your side: "))
+    
+    return input_drink, input_entree, input_side
 
 def main():
     menu = Menu()
     print_menu(menu)
-    input_drink = str(input("What would you like to drink: "))
-    input_entree = str(input("What would you like for your entree: "))
-    input_side = str(input("What would you like for your side: "))
-    print(order_combo(menu, input_drink, input_entree, input_side).price)
+    drink, entree, side = take_order()
+    print(order_combo(menu, drink, entree, side).price)
 
 
 if __name__ == "__main__":
