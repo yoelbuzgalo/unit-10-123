@@ -32,10 +32,72 @@ def test_food_price_dict():
 
 def test_food_code():
     # Setup
-    expected_code = 'Water'
+    expected_code = 'wa'
 
     # Invoke
-    result_code = food_truck.FOOD_CODE['wa']
+    result_code = food_truck.FOOD_LETTER['Water']
 
     # Analysis
     assert expected_code == result_code
+
+def test_menu_item_water():
+    """
+    Verify that menu item is implemented correctly (test once to see if class object is constructed correctly)
+    """
+    # Setup
+    expected_letter = 'wa'
+    expected_name = 'Water'
+    expected_price = 2.00
+
+    # Invoke
+    result = food_truck.Menu_Item('wa', 'Water', 2.00)
+
+    # Analysis
+    assert result.letter == expected_letter
+    assert result.name == expected_name
+    assert result.price == expected_price
+
+def test_menu_list_item_drink():
+    """
+    Verify that menu list is working as expected (drink category)
+    """
+    # Setup
+    expected_item = food_truck.Menu_Item('wa', 'Water', 2.00)
+
+    # Invoke
+    result = food_truck.Menu().drink_list
+
+    # Analysis
+    assert result[0].letter == expected_item.letter
+    assert result[0].name == expected_item.name
+    assert result[0].price == expected_item.price
+
+def test_menu_list_item_entree():
+    """
+    Verify that menu list is working as expected (entree category)
+    """
+    # Setup
+    expected_item = food_truck.Menu_Item('pi', 'Pizza', 2.85)
+
+    # Invoke
+    result = food_truck.Menu().entree_list
+
+    # Analysis
+    assert result[1].letter == expected_item.letter
+    assert result[1].name == expected_item.name
+    assert result[1].price == expected_item.price
+
+def test_menu_list_item_side():
+    """
+    Verify that menu list is working as expected (side category)
+    """
+    # Setup
+    expected_item = food_truck.Menu_Item('co', 'Cornbread', 1.00)
+
+    # Invoke
+    result = food_truck.Menu().side_list
+
+    # Analysis
+    assert result[2].letter == expected_item.letter
+    assert result[2].name == expected_item.name
+    assert result[2].price == expected_item.price
