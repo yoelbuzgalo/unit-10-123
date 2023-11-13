@@ -1,18 +1,18 @@
 Nouns: system, title, book, library, patrons, shelves, authors, card catalog, list, id, name, csv file, copies
 
 Library:
-    shelves
-    card catalog
-    books
-    csv filename
+    shelves: list[Book]
+    title_catalog: dict[title]
+    author_catalog: dict[author]
+    csv filename: str
 
 Patron:
-    name
-    want list
-    id
-    has list
+    name: str
+    id: int
+    want list: set[title:str]
+    has list: set[title:str]
 
 Book:
-    title
-    authors
-    num copies
+    title: str
+    author: str
+    num copies: int
