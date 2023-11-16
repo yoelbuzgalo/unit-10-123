@@ -80,6 +80,8 @@ def print_roster(an_avenger):
     """
     This function prints the roster of the avengers team and marks its leader
     """
+    print("Roster:")
+    print()
     print("[Leader]", an_avenger.leader.name) # Prints the leader in first line
     for avenger in an_avenger.team:
         if avenger.name == an_avenger.leader.name:
@@ -87,6 +89,8 @@ def print_roster(an_avenger):
         print(avenger.name)
 
 def print_roster_with_bio(an_avenger):
+    print("Roster with Bios:")
+    print()
     print_superhero_bio(an_avenger.leader, True)
     for avenger in an_avenger.team:
         if avenger.name == an_avenger.leader.name:
@@ -99,10 +103,17 @@ def main():
 
     # Testing whether if it printed an individual member's bio correctly
     print_member(avengers_team, 'Black Widow')
+
+    print("\n\n")
+    # Testing whether if it prints "Leader bio: " and its bio correctly.
     print_member(avengers_team, 'Captain America')
+
+    print("\n\n")
 
     # Testing whether if it printed roster without bio correctly
     print_roster(avengers_team)
+
+    print("\n\n")
 
     # Testing whether if it printed roster with bio correctly
     print_roster_with_bio(avengers_team)
