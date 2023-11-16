@@ -16,3 +16,15 @@ Book:
     title: str
     author: str
     num copies: int
+
+Nouns: Avengers, Team, Superhero, Marvel Universe, Situations, Guys, Assignment, System, Team Member, Name, Identity, Powers, Weapons, Leader
+
+Avengers:
+    Team: list[Superhero]
+    Leader: Superhero
+
+Superhero:
+    Name: str
+    Identity: str
+    Powers: str
+    Weapons: str
